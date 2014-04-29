@@ -1,0 +1,57 @@
+extends layout
+
+block content
+    h1= title
+    p Welcome to #{title}
+    ul
+        each image, i in imagelist
+            li: img(src= #{image.file_path})
+            // Wrapper
+            #wrapper
+                // Image INFO
+                #imageInfo
+                    h2 Image Info
+                    p
+                        strong Colorstyle:
+                        | <span id='imageInfoColorstyle'></span>
+                        br
+                        strong FilePath:
+                        | <span id='imageInfoFilePath'></span>
+                        br
+                        strong PhotoDate:
+                        | <span id='imageInfoPhotoDate'></span>
+                        br
+                        strong ShotNumber:
+                        | <span id='imageInfoShotNumber'></span>
+                // /Image INFO
+                // Image LIST
+                h2 Image List
+                #imageList
+                    table
+                        thead
+                            th Colorstyle
+                            th File_Path
+                            th Delete?
+                        tbody
+                // /Image LIST
+                // ADD IMAGE
+                h2 Add Image
+                #addImage
+                    fieldset
+                        form(action="/upload", method="post", enctype="multipart/form-data")
+                        input(type="text", name="Title")
+                        input(type="file", multiple, name="image", placeholder='BrowseToUpload')
+                        input#inputImageColorstyle(type='text', placeholder='Colorstyle')
+                        input#inputImageFilePath(type='text', placeholder='BrowseToUpload')
+                        br
+                        input#inputImagePhotoDate(type='date', placeholder='Photo Date')
+                        input#inputImageMetadata(type='text', placeholder='key: value')
+                        br
+                        input#inputImageSessionNotes(type='text', placeholder='Onset Notes')
+                        input#inputImagePhotoNotes(type='text', placeholder='Image Notes')
+                        br
+                        button(type="submit", value="Upload") Upload File
+                        //- button#btnAddImage Add Image
+                // /ADD IMAGE
+                // /WRAPPER
+
