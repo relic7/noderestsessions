@@ -1,5 +1,38 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+    h1= title
+    p Welcome to your Image Listings
+
+    // Wrapper
+    #wrapper
+
+        // IMAGE INFO
+        #imageInfo
+            h2 Image Info
+            p
+                strong Colorstyle:
+                |  <span id='imageInfoColorstyle'></span>
+                br
+                strong Alt:
+                |  <span id='imageInfoAlt'></span>
+                br
+                strong ShotNumber:
+                |  <span id='imageInfoShotNumber'></span>
+                br
+                strong FilePath:
+                |  <span id='imageInfoFilepath'></span>
+        // /IMAGE INFO
+
+        // IMAGE LIST
+        h2 Image List
+        #imageList
+            table
+                thead
+                    th Colorstyle
+                    th Filepath
+                    th Delete?
+                tbody
+        // /IMAGE LIST
+
+    // /WRAPPER

@@ -44,7 +44,7 @@ function populateTable() {
 };
 
 
-// Show image Info
+// Show Image Info
 function showImageInfo(event) {
 
     // Prevent Link from Firing
@@ -56,7 +56,7 @@ function showImageInfo(event) {
     // Get Index of object based on id value
     var arrayPosition = imageListData.map(function(arrayItem) { return arrayItem.imagename; }).indexOf(thisImageName);
 
-    // Get our image Object
+    // Get our Image Object
     var thisImageObject = imageListData[arrayPosition];
 
     //Populate Info Box
@@ -84,11 +84,12 @@ function addImage(event) {
         // If it is, compile all Image info into one object
         var newImage = {
             'imagename': $('#addImage fieldset input#inputImageName').val(),
-            'email': $('#addImage fieldset input#inputImageEmail').val(),
-            'fullname': $('#addImage fieldset input#inputImageFullname').val(),
-            'age': $('#addImage fieldset input#inputImageAge').val(),
-            'location': $('#addImage fieldset input#inputImageLocation').val(),
-            'gender': $('#addImage fieldset input#inputImageGender').val()
+            'colorstyle': $('#addImage fieldset input#inputImageColorstyle').val(),
+            'alt': $('#addImage fieldset input#inputImageAlt').val(),
+            'shotnumber': $('#addImage fieldset input#inputImageShotNumber').val(),
+            'filepath': $('#addImage fieldset input#inputImageFilepath').val(),
+            'notes': $('#addImage fieldset input#inputImageNotes').val(),
+            'tags': $('#addImage fieldset input#inputImageTags').val()
         }
 
         // Use AJAX to post the object to our addImage service

@@ -17,9 +17,12 @@ var bodyParser = require('body-parser');
 
 
 // New Code Tells what db to use and where to access it
-var mongo = require('mongodb');
-var monk = require('monk');
-var db = monk('localhost:27017/images');
+//var mongo = require('mongodb');
+//var monk = require('monk');
+//var db = monk('localhost:27017/images');
+// Database
+var mongo = require('mongoskin');
+var db = mongo.db("mongodb://localhost:27017/noderestsessions", {native_parser:true});
 
 
 ////////////////////////////////////////////////////////
@@ -30,6 +33,7 @@ var db = monk('localhost:27017/images');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var images = require('./routes/images');
+var upload = require('./routes/upload');
 
 // Instansiate Express
 var app = express();
@@ -58,6 +62,7 @@ app.use(function(req,res,next){
 // Url conf like routing of urls
 app.use('/', routes);
 app.use('/users', users);
+app.use('/upload', upload);
 app.use('/images', images)
 //////////////////////////////////////////////////////////////////////////////
 //////////////  Database Connection Open ////////////////////////////////////
