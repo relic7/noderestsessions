@@ -22,7 +22,7 @@ var bodyParser = require('body-parser');
 //var db = monk('localhost:27017/images');
 // Database
 var mongo = require('mongoskin');
-var db = mongo.db("mongodb://localhost:27017/noderestsessions", {native_parser:true});
+var db = mongo.db("mongodb://localhost:27017/imagescollection", {native_parser:true});
 
 
 ////////////////////////////////////////////////////////
@@ -33,7 +33,7 @@ var db = mongo.db("mongodb://localhost:27017/noderestsessions", {native_parser:t
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var images = require('./routes/images');
-var upload = require('./routes/upload');
+//var upload = require('./routes/upload');
 
 // Instansiate Express
 var app = express();
@@ -62,8 +62,9 @@ app.use(function(req,res,next){
 // Url conf like routing of urls
 app.use('/', routes);
 app.use('/users', users);
-app.use('/upload', upload);
-app.use('/images', images)
+app.use('/images', images);
+// app.use('/upload', upload)
+
 //////////////////////////////////////////////////////////////////////////////
 //////////////  Database Connection Open ////////////////////////////////////
 
