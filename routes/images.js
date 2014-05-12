@@ -10,7 +10,7 @@ var router = express.Router();
  */
 router.get('/imagelist', function(req, res) {
     var db = req.db;
-    db.collection('imagecollection').find().toArray(function (err, items) {
+    db.getCollection('imagecollection').find().toArray(function (err, items) {
         res.json(items);
     });
 });
@@ -20,7 +20,7 @@ router.get('/imagelist', function(req, res) {
  */
 router.post('/addimage', function(req, res) {
     var db = req.db;
-    db.collection('imagecollection').insert(req.body, function(err, result){
+    db.getCollection('imagecollection').insert(req.body, function(err, result){
         res.send(
             (err === null) ? { msg: '' } : { msg: err }
         );
@@ -33,7 +33,7 @@ router.post('/addimage', function(req, res) {
 router.delete('/deleteimage/:id', function(req, res) {
     var db = req.db;
     var imageToDelete = req.params.id;
-    db.collection('imagecollection').removeById(imageToDelete, function(err, result) {
+    db.getCollection('imagecollection').removeById(imageToDelete, function(err, result) {
         res.send((result === 1) ? { msg: '' } : { msg:'error: ' + err });
     });
 });

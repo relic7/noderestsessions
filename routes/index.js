@@ -10,10 +10,14 @@ router.get('/', function(req, res) {
 /* GET Image list page. */
 router.get('/images/imagelist', function(req, res) {
     var db = req.db;
-    var collection = db.get('imagescollection');
-    collection.find({},{},function(e,docs){
-        res.render('imagelist', {
-            "imagelist" : docs
+    db.getCollection('imagescollection').find().toArray(function (err, items) {
+        res.json(items);
+    // var collection = db.get('imagescollection');
+    //collection.find({},{},function(e,docs){
+    //    res.render('imagelist', {
+    //        "imagelist" : docs
+    
+    
         });
     });
 });

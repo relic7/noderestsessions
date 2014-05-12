@@ -34,5 +34,23 @@ block content
                     th Delete?
                 tbody
         // /IMAGE LIST
+        
+        // ADD IMAGE
+        h2 Add Image
+        #addImage
+            fieldset
+                input#inputImageName(type='text', placeholder='Imagename')
+                input#inputImageColorstyle(type='text', placeholder='Colorstyle')
+                br
+                input#inputImageAlt(type='text', placeholder='Alt')
+                input#inputImageShotNumber(type='text', placeholder='ShotNumber')
+                br
+                input#inputImageFilepath(type='text', placeholder='Filepath')
+                br
+                input#inputImageNotes(type='text', placeholder='Notes')
+                input#inputImageTag(type='text', placeholder='Tags')
+                br
+                button#btnAddImage Add Image
+        // /ADD IMAGE
 
     // /WRAPPER
